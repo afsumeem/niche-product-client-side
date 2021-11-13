@@ -33,6 +33,7 @@ const useFirebase = () => {
 
     };
 
+    //registration
 
     const handleRegistration = () => {
 
@@ -139,7 +140,7 @@ const useFirebase = () => {
             .then()
     }
 
-    //
+    // check admin
 
     useEffect(() => {
         fetch(`https://ancient-headland-15558.herokuapp.com/users/${user.email}`)

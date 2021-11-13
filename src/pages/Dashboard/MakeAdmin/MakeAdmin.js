@@ -34,13 +34,13 @@ const MakeAdmin = () => {
 
 
     return (
-        <div>
+        <div className="mt-5">
             {/* make admin title */}
-            <h2>Make an Admin</h2>
+            <h2>MAKE AN ADMIN</h2>
 
 
             {/* input form for making admin */}
-            <form onSubmit={handleMakeAdmin}>
+            <form onSubmit={handleMakeAdmin} className="pt-3">
 
                 <InputGroup className="mb-3 mt-4 w-50 mx-auto">
 
@@ -53,12 +53,16 @@ const MakeAdmin = () => {
 
                     />
 
+
                     <InputGroup.Text id="basic-addon2"
                         className="bg-primary bg-opacity-75 ">
                         <FontAwesomeIcon className="fs-5 text-white mx-3" icon={faUser} />
                     </InputGroup.Text>
 
                 </InputGroup>
+
+                <br />
+
 
                 <Button variant="primary"
                     className="w-50 mx-auto mb-3 " type="submit">

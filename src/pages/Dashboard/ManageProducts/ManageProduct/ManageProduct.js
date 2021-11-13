@@ -36,8 +36,8 @@ const ManageProduct = ({ manage }) => {
     return (
 
         <>
-            <tr>
-                <td>{name}</td>
+            <tr className="text-start">
+                <td className="ps-5">{name}</td>
                 <td>{price}</td>
                 <td>
 

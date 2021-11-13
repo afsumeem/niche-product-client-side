@@ -1,5 +1,7 @@
+/* style about us section */
+
 .about-us-thumbnail{
-    background-image: url("../images/img-13.jpg");
+    background-image: url("../../images/img-13.jpg");
   background-repeat:repeat;
   background-attachment: fixed;
   margin-top: 25px;

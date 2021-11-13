@@ -22,7 +22,7 @@ const AddNewProduct = () => {
 
 
     return (
-        <div className="form-container">
+        <div className="product-form-container">
 
             {/* add brand title */}
             <h2 className=" pt-5 text-white text-uppercase">Add New Fragrance Brand</h2>

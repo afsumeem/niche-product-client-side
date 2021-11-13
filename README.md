@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Web Template of The Fragrance Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Link of  [The Fragrance Shop](https://fragrance-shop.web.app/home).
 
-## Available Scripts
+## Description
+
+* The Fragrance Shop website is created by React app.
+* This website offers to users purchase world best perfume which we provide in the top fragrance brands section.
+* Users Can see all information about latest fragrance on this website.
+* Using this website users Can get perfume purchase related supports from the Fragrance Shop team.
+* Users can get all the facilities of fragrance shop by using this website. 
 

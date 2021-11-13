@@ -13,6 +13,7 @@ const ManageOrder = ({ allOrder }) => {
     const handleNoBtn = () => setShow(false);
 
 
+    // handle delete order from api
     const handleDeleteOrder = id => {
         const url = `https://ancient-headland-15558.herokuapp.com/orders/${id}`
 
@@ -31,7 +32,7 @@ const ManageOrder = ({ allOrder }) => {
     //update order status
 
     const handleUpdateStatus = () => {
-        const updated = { status: '' }
+        const updated = { status: 'Approved' }
 
         const url = `https://ancient-headland-15558.herokuapp.com/orders/${_id}`
         fetch(url, {
@@ -50,19 +51,16 @@ const ManageOrder = ({ allOrder }) => {
 
     return (
         <>
+            {/* data from users orders  */}
             <tr>
                 <td className="p-3">{name}</td>
                 <td className="p-3">{productName}</td>
                 <td className="p-3">{date}</td>
-                <td className="p-3">{status}
-                    {
-                        status === '' && <FontAwesomeIcon className="fs-6 me-2 text-success" icon={faCheck} />
-                    }
-                </td>
+                <td className="p-3">{status}</td>
 
                 <td>
 
-                    <button className="border-0 btn btn-0 text-success" title="Confirm Order" onClick={handleUpdateStatus}>
+                    <button className="border-0 btn btn-0 text-primary" title="Confirm Order" onClick={handleUpdateStatus}>
                         Confirm
                     </button>
 
@@ -77,17 +75,21 @@ const ManageOrder = ({ allOrder }) => {
             {/* Confirmation alert */}
             <Modal show={show} onHide={handleClose}>
 
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                modal title
+                <div className="modal-header">
+                    <h5 className="modal-title text-primary" id="exampleModalLabel">Confirmation</h5>
                 </div>
-                <Modal.Body>Are you sure you want to cancel this order? This action cannot be undone and you will be unable to recover any data.</Modal.Body>
 
+                <Modal.Body>Are you sure you want to <span className="text-danger fw-bold"> cancel </span> this order? This action cannot be undone and you will be unable to recover any data.</Modal.Body>
+
+
+                {/* confirmation button */}
                 <Modal.Footer>
 
-                    <Button variant="secondary" onClick={() => { handleDeleteOrder(_id) }}>
+                    <Button variant="outline-danger" onClick={() => { handleDeleteOrder(_id) }}>
                         Yes! Delete it
                     </Button>
-                    <Button variant="primary" onClick={handleNoBtn}>
+                    <Button variant="outline-success" onClick={handleNoBtn}>
                         No
                     </Button>
                 </Modal.Footer>

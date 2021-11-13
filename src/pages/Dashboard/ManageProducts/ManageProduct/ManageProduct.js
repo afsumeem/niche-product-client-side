@@ -91,16 +91,18 @@ const ManageProduct = ({ manage }) => {
             <Modal show={show} onHide={handleClose}>
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <h5 class="modal-title text-primary" id="exampleModalLabel">Confirmation</h5>
                 </div>
-                <Modal.Body>Are you sure you want to cancel this order? This action cannot be undone and you will be unable to recover any data.</Modal.Body>
+
+                <Modal.Body>Are you sure you want to <span className="text-danger fw-bold"> delete</span> this product? This action cannot be undone and you will be unable to recover any data.</Modal.Body>
 
                 <Modal.Footer>
 
-                    <Button variant="secondary" onClick={() => { handleDeleteProduct(_id) }}>
+                    {/* confirmation button */}
+                    <Button variant="outline-danger" onClick={() => { handleDeleteProduct(_id) }}>
                         Yes! Delete it
                     </Button>
-                    <Button variant="primary" onClick={handleNoBtn}>
+                    <Button variant="outline-success" onClick={handleNoBtn}>
                         No
                     </Button>
                 </Modal.Footer>

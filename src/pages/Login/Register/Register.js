@@ -16,12 +16,13 @@ const Register = () => {
     const redirect_uri = location.state?.from || '/home';
 
     return (
-        <div>
+        <div className="bg-dark" style={{ height: '100vh' }}>
             {/* signup form container */}
 
-            <div className="form-container w-50 p-5 mx-auto bg-dark bg-opacity-50">
+            <div className="form-container w-50 p-5 mx-auto bg-info bg-opacity-25" style={{ height: '100vh' }}>
                 <h2 className="pt-5 text-uppercase text-white fw-bolder">Create an Account</h2>
 
+                {/* handle submit */}
                 <Form onSubmit={(e) => {
                     e.preventDefault();
 
@@ -53,7 +54,7 @@ const Register = () => {
                     <div className="row mb-3 text-danger">{error}</div>
 
 
-                    {/* sign up form inputgroups */}
+                    {/* sign up form input groups */}
 
                     <FloatingLabel
                         controlId="floatingInput"
@@ -83,7 +84,7 @@ const Register = () => {
                 <p className="ms-3 mt-3 text-white fw-bolder">Already have an account ? </ p>
 
                 {/* login page path */}
-                <NavLink to="/login" className="btn rounded btn-primary">Sign in </NavLink>
+                <NavLink to="/login" className="btn w-75 rounded btn-outline-warning">Sign in </NavLink>
 
             </div>
         </div>

@@ -9,7 +9,7 @@ import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import PurchaseProducts from './pages/PurchaseProducts/PurchaseProducts';
 import Register from './pages/Login/Register/Register';
 import NotFound from './pages/NotFound/NotFound';
-import About from './About/About';
+import About from './pages/About/About';
 
 function App() {
   return (

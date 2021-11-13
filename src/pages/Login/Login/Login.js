@@ -45,11 +45,11 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container" >
+        <div className=" bg-warning bg-opacity-25" >
             <div className="container">
 
                 {/* login form section */}
-                <div className="form-container w-50 p-5 mx-auto bg-white bg-opacity-50">
+                <div className="w-50 p-5 mx-auto bg-dark bg-opacity-25">
 
                     <Form onSubmit={userLoginWithEmailPass}
 
@@ -93,11 +93,13 @@ const Login = () => {
 
                         </InputGroup>
 
+                        {/* sign in button */}
                         <Button variant="primary"
                             className="w-100 mb-3" type="submit">
                             Sign in
                         </Button><br />
 
+                        {/* button for forgot password */}
                         <Button className="mb-3 link text-dark fw-bolder border-0 bg-transparent text-decoration-underline"
                             onClick={handleResetPassword}
                         >

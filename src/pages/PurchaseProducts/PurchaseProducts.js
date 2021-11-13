@@ -71,7 +71,7 @@ const PurchaseProducts = () => {
                                     <input className="mx-3 my-2 w-75 px-4 py-2" value={productDetails.name} {...register("productName", { required: true })} />
                                 }
 
-                                <input className="mx-3 my-2 w-75 px-4 py-2" value={productDetails.price} {...register("price", { required: true })} />
+                                <input className="mx-3 my-2 w-75 px-4 py-2" defaultValue={productDetails.price} {...register("price")} />
 
                                 <input className="mx-3 my-2 w-75 px-4 py-2" placeholder="Address"{...register("Address", { required: true })} />
 
@@ -80,6 +80,7 @@ const PurchaseProducts = () => {
                                 <input className="mx-3 my-2 w-75 px-4 py-2" type="date" placeholder="Choose Date"{...register("date", { required: true })} />
 
                                 <input className="mx-3 my-2 w-75 px-4 py-2" defaultValue={user.email} {...register("email", { required: true })} />
+
                                 {errors.email && <span className="text-danger">Please Enter Your Email</span>}
                                 <br />
 

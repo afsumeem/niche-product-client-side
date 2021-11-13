@@ -8,14 +8,26 @@ import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
     return (
+
+        // home page
         <div>
+
+            {/* header section */}
             <Header></Header>
+
+            {/* banner section */}
             <Banner></Banner>
+
+            {/* all fragrance brands */}
             <FragranceBrands></FragranceBrands>
+
+            {/* customer reviews */}
             <Reviews></Reviews>
 
+            {/* facilities section */}
             <Facility></Facility>
 
+            {/* footer section */}
             <Footer></Footer>
         </div>
     );

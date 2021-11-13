@@ -16,6 +16,8 @@ import { faCartPlus, faFileInvoiceDollar, faShoppingBasket, faSignOutAlt, faTask
 import { faCommentAlt, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import Payment from '../Payment/Payment';
 import AdminRoute from '../../AdminRoute/AdminRoute';
+import './Dashboard.css';
+import DashBoardHome from '../DashBoardHome/DashBoardHome';
 
 
 const Dashboard = () => {
@@ -31,16 +33,17 @@ const Dashboard = () => {
 
             {/* dashboard nested route */}
             <Col xs={12} sm={12} md={3} className="px-0" >
-                <Navbar bg="dark" expand="md" style={{ height: '100vh' }}>
-                    <Container className=" d-flex flex-column" >
+                <Navbar bg="dark" expand="md">
+                    <Container className=" d-flex flex-column dashboard-route">
+
                         <Navbar.Brand className="text-white me-auto" href="/home">The Fragrance Shop</Navbar.Brand>
 
                         <hr className="w-100 bg-white" />
 
-                        <Navbar.Text className="text-white my-1 text-start me-auto">
+                        < NavLink to={`${url}`} className="text-white my-1 text-decoration-none text-start me-auto">
                             <FontAwesomeIcon className="fs-4 me-2" icon={faUsersCog} />
                             Dashboard
-                        </Navbar.Text>
+                        </NavLink>
 
                         <hr className="w-100 bg-white" />
 
@@ -132,7 +135,7 @@ const Dashboard = () => {
                 <Switch>
 
                     <Route exact path={path}>
-                        <h2>this is dashboard</h2>
+                        <DashBoardHome></DashBoardHome>
                     </Route>
 
                     <AdminRoute path={`${path}/manageOrder`}>

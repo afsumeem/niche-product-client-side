@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <div>
-            {/* menu bar */}
+            {/* nav bar */}
             <Navbar fixed="top" bg="dark" className="bg-opacity-75 py-3" expand="lg">
                 <Container>
 

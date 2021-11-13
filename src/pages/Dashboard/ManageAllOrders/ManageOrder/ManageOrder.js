@@ -14,7 +14,7 @@ const ManageOrder = ({ allOrder }) => {
 
 
     const handleDeleteOrder = id => {
-        const url = `http://localhost:5000/orders/${id}`
+        const url = `https://ancient-headland-15558.herokuapp.com/orders/${id}`
 
         fetch(url, {
             method: 'DELETE'
@@ -31,9 +31,9 @@ const ManageOrder = ({ allOrder }) => {
     //update order status
 
     const handleUpdateStatus = () => {
-        const updated = { status: 'Approved' }
+        const updated = { status: '' }
 
-        const url = `http://localhost:5000/orders/${_id}`
+        const url = `https://ancient-headland-15558.herokuapp.com/orders/${_id}`
         fetch(url, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
@@ -54,12 +54,16 @@ const ManageOrder = ({ allOrder }) => {
                 <td className="p-3">{name}</td>
                 <td className="p-3">{productName}</td>
                 <td className="p-3">{date}</td>
-                <td className="p-3">{status}</td>
+                <td className="p-3">{status}
+                    {
+                        status === '' && <FontAwesomeIcon className="fs-6 me-2 text-success" icon={faCheck} />
+                    }
+                </td>
+
                 <td>
 
                     <button className="border-0 btn btn-0 text-success" title="Confirm Order" onClick={handleUpdateStatus}>
-
-                        <FontAwesomeIcon className="fs-6 me-2" icon={faCheck} />
+                        Confirm
                     </button>
 
                     <button className="border-0 btn btn-0 text-danger" title="Delete order" onClick={() => { setShow(true); }}>

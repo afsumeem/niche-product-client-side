@@ -17,7 +17,7 @@ const Reviews = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://ancient-headland-15558.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [reviews]);
@@ -29,7 +29,10 @@ const Reviews = () => {
             <Slider {...settings}>
                 {
                     reviews.map(review =>
-                        <div className="w-50 mx-auto">
+
+                        <div className="w-50 mx-auto"
+                            key={review._id}
+                        >
 
                             <img src={review.img} alt="" style={{ height: '100px', width: '100px', borderRadius: '50%', marginBottom: '20px' }} />
 

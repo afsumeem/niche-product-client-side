@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
+import Header from '../Shared/Header/Header';
 
 const PurchaseProducts = () => {
 
@@ -20,7 +21,7 @@ const PurchaseProducts = () => {
 
     useEffect(() => {
 
-        const url = `http://localhost:5000/brands/${id}`
+        const url = `https://ancient-headland-15558.herokuapp.com/brands/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProductDetails(data))
@@ -29,7 +30,7 @@ const PurchaseProducts = () => {
     // handle submit
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://ancient-headland-15558.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Form submitted successfully");
@@ -40,6 +41,7 @@ const PurchaseProducts = () => {
 
     return (
         <div >
+            <Header></Header>
             <div className="container mt-5">
                 <div className="row m-0 pt-5">
                     <div className="col-md-6">
@@ -82,7 +84,7 @@ const PurchaseProducts = () => {
                                 <br />
 
                                 {/* order status */}
-                                <input className="mx-3 my-2 w-25 px-4 py-2" defaultValue="Pending..." readOnly {...register("status")} title="Order status" />
+                                <input className="mx-3 my-2 w-25 px-4 py-2" defaultValue="Pending" readOnly {...register("status")} title="Order status" />
 
                                 {/* submit button */}
                                 < input className="d-block mx-auto mx-3 my-2 btn btn-info w-75" type="submit" value="Order Now" />

@@ -28,7 +28,7 @@ function App() {
               <Home></Home>
             </Route>
 
-            <Route to="/about">
+            <Route path="/about">
               <About></About>
             </Route>
 

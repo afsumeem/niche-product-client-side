@@ -6,6 +6,8 @@ import notFound from '../../images/404.jpeg';
 
 const NotFound = () => {
     return (
+        // not found page
+
         <div className="mt-5">
             <img src={notFound} alt="" className="pt-5 w-75" />
             <NavLink to="/home" className="mx-auto w-75 btn btn-primary py-3 rounded-0 fs-4 fw-bolder">

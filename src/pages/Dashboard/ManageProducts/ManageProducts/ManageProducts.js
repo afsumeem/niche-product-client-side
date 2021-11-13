@@ -6,6 +6,7 @@ import ManageProduct from '../ManageProduct/ManageProduct';
 const ManageProducts = () => {
     const [manageProducts, setManageProducts] = useState([]);
 
+    // fetch all brands from api
     useEffect(() => {
 
         fetch('https://ancient-headland-15558.herokuapp.com/brands')
@@ -15,9 +16,13 @@ const ManageProducts = () => {
 
     return (
         <div className="bg-primary bg-opacity-25 pb-5 pt-3 my-0">
+
+            {/* manage all product title */}
             <h2 className="my-4">Manage All Products</h2>
             <Table striped bordered hover size="sm" className="w-75 mx-auto fs-5 ">
                 <thead>
+
+                    {/* product list title */}
                     <tr>
                         <th className="p-3">Product Name</th>
                         <th className="p-3">Price</th>

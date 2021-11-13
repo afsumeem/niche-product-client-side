@@ -1,4 +1,5 @@
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
@@ -59,8 +60,8 @@ const ManageOrder = ({ allOrder }) => {
 
                 <td>
 
-                    <button className="border-0 btn btn-0 text-primary" title="Confirm Order" onClick={handleUpdateStatus}>
-                        Confirm
+                    <button className="border-0 btn btn-0 text-success" title="Confirm Order" onClick={handleUpdateStatus}>
+                        <FontAwesomeIcon className="fs-6 me-2" icon={faCheck} />
                     </button>
 
                     <button className="border-0 btn btn-0 text-danger" title="Delete order" onClick={() => { setShow(true); }}>
@@ -74,7 +75,7 @@ const ManageOrder = ({ allOrder }) => {
             {/* Confirmation alert */}
             <Modal show={show} onHide={handleClose}>
 
-                modal title
+                {/* modal title */}
                 <div className="modal-header">
                     <h5 className="modal-title text-primary" id="exampleModalLabel">Confirmation</h5>
                 </div>

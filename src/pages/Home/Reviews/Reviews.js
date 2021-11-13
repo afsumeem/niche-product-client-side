@@ -32,7 +32,7 @@ const Reviews = () => {
             <h3 className="mb-4 text-white">WHAT OUR CUSTOMER SAYS</h3>
 
             <div className="container">
-                <Slider {...settings}>
+                <Slider {...settings} className="container">
                     {
                         reviews.map(review =>
 

@@ -1,9 +1,16 @@
 import React from 'react';
+import { Alert } from 'react-bootstrap';
 
 const Payment = () => {
+
     return (
+
         <div>
-            <h2>Payment system coming soon</h2>
+
+            <Alert variant='warning' className="p-5 m-5">
+                <h2>Payment system coming soon!!</h2>
+            </Alert>
+
         </div>
     );
 };

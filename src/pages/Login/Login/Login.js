@@ -13,7 +13,7 @@ const Login = () => {
 
     const location = useLocation();
     const history = useHistory();
-    const redirect_uri = location.state?.from || '/home';
+    const redirect_uri = location.state?.from || '/dashboard';
 
     //handle google sign in button
     const handleGoogleLogIn = () => {

@@ -18,19 +18,21 @@ import Payment from '../Payment/Payment';
 import AdminRoute from '../../AdminRoute/AdminRoute';
 
 
-
-
 const Dashboard = () => {
+
     let { path, url } = useRouteMatch();
 
     const { user, admin, logOut } = useAuth();
 
     return (
 
+        // dashboard
         <Row className="me-0">
-            <Col xs={12} sm={12} md={3} className="px-0">
-                <Navbar bg="dark" expand="md">
-                    <Container className=" d-flex flex-column">
+
+            {/* dashboard nested route */}
+            <Col xs={12} sm={12} md={3} className="px-0" >
+                <Navbar bg="dark" expand="md" style={{ height: '100vh' }}>
+                    <Container className=" d-flex flex-column" >
                         <Navbar.Brand className="text-white me-auto" href="/home">The Fragrance Shop</Navbar.Brand>
 
                         <hr className="w-100 bg-white" />
@@ -45,52 +47,56 @@ const Dashboard = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-auto text-start" />
 
                         <Navbar.Collapse id="basic-navbar-nav" className="me-auto text-start">
+
                             <Nav className="d-flex flex-column">
 
+                                {/* dashboard options */}
 
-                                <NavLink to={`${url}/postReview`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    <FontAwesomeIcon className="fs-6 me-2" icon={faCommentAlt} />
-                                    Add Review
-                                </NavLink><br />
-
-                                <NavLink to={`${url}/myorder`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    <FontAwesomeIcon className="fs-6 me-2" icon={faCartPlus} />
-                                    My Orders
-                                </NavLink><br />
-
-                                <NavLink to={`${url}/payment`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    <FontAwesomeIcon className="fs-6 me-2" icon={faFileInvoiceDollar} />
-                                    Payment
-                                </NavLink><br />
-
-                                {
-                                    admin &&
+                                {admin ?
                                     <>
+                                        <NavLink to={`${url}/manageOrder`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faShoppingBasket} />
+                                            Manage All Order
+                                        </NavLink><br />
+
                                         <NavLink to={`${url}/newProduct`} style={{ textDecoration: 'none', color: 'white' }}>
                                             <FontAwesomeIcon className="fs-6 me-2" icon={faPlusSquare} />
                                             Add New Product
                                         </NavLink><br />
 
-                                        <NavLink to={`${url}/manageProduct`} style={{ textDecoration: 'none', color: 'white' }}>
-                                            <FontAwesomeIcon className="fs-6 me-2" icon={faTasks} />
-                                            Manage Products
-                                        </NavLink><br />
-
-
                                         <hr className="w-100 bg-white" />
-
-                                        <NavLink to={`${url}/manageOrder`} style={{ textDecoration: 'none', color: 'white' }}>
-                                            <FontAwesomeIcon className="fs-6 me-2" icon={faShoppingBasket} />
-                                            Manage All Order
-                                        </NavLink><br />
 
                                         <NavLink to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'white' }}>
                                             <FontAwesomeIcon className="fs-6 me-2" icon={faUserShield} />
                                             Make Admin
                                         </NavLink><br />
 
+
+                                        <NavLink to={`${url}/manageProduct`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faTasks} />
+                                            Manage Products
+                                        </NavLink><br />
+                                    </>
+                                    :
+                                    <>
+                                        <NavLink to={`${url}/payment`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faFileInvoiceDollar} />
+                                            Payment
+                                        </NavLink><br />
+
+                                        <NavLink to={`${url}/myorder`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faCartPlus} />
+                                            My Orders
+                                        </NavLink><br />
+
+                                        <NavLink to={`${url}/postReview`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faCommentAlt} />
+                                            Add Review
+                                        </NavLink><br />
                                     </>
                                 }
+
+                                {/* users name and logout button */}
 
                                 <hr className="w-100 mx-auto text-white" />
 
@@ -105,7 +111,6 @@ const Dashboard = () => {
                                     <FontAwesomeIcon className="fs-6 me-2" icon={faSignOutAlt} />
                                     Logout
                                 </NavLink>
-
 
                             </Nav>
                         </Navbar.Collapse>
@@ -125,6 +130,10 @@ const Dashboard = () => {
                 {/* //nested route */}
 
                 <Switch>
+
+                    <Route exact path={path}>
+                        <h2>this is dashboard</h2>
+                    </Route>
 
                     <AdminRoute path={`${path}/manageOrder`}>
                         <ManageAllOrders></ManageAllOrders>

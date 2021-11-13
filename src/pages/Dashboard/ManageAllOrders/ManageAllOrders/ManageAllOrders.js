@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-            <h2>Manage All Orders {allOrders.length}</h2>
+            <h2>Manage All Orders</h2>
 
             <Table striped bordered hover size="sm" className=" fs-6 border-4">
                 <thead>

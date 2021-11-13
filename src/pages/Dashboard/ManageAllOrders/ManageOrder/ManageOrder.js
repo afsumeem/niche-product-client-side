@@ -1,5 +1,4 @@
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
@@ -32,7 +31,7 @@ const ManageOrder = ({ allOrder }) => {
     //update order status
 
     const handleUpdateStatus = () => {
-        const updated = { status: 'Approved' }
+        const updated = { status: 'shipped' }
 
         const url = `https://ancient-headland-15558.herokuapp.com/orders/${_id}`
         fetch(url, {

@@ -16,6 +16,7 @@ const Reviews = () => {
         autoplay: true
     };
 
+    // load reviews from api
     useEffect(() => {
         fetch('https://ancient-headland-15558.herokuapp.com/reviews')
             .then(res => res.json())
@@ -23,38 +24,45 @@ const Reviews = () => {
     }, [reviews]);
 
     return (
-        <div className=" py-5 review-container my-5">
 
+        // testimonial
+        <div className=" py-5 review-container my-5 ps-0">
+
+            {/* testimonial title */}
             <h3 className="mb-4 text-white">WHAT OUR CUSTOMER SAYS</h3>
-            <Slider {...settings}>
-                {
-                    reviews.map(review =>
 
-                        <div className="w-50 mx-auto"
-                            key={review._id}
-                        >
+            <div className="container">
+                <Slider {...settings}>
+                    {
+                        reviews.map(review =>
 
-                            <img src={review.img} alt="" style={{ height: '100px', width: '100px', borderRadius: '50%', marginBottom: '20px' }} />
+                            <div className="w-50 mx-auto"
+                                key={review._id}
+                            >
 
-                            <div className="text-start text-white">
+                                <img src={review.img} alt="" style={{ height: '100px', width: '100px', borderRadius: '50%', marginBottom: '20px' }} />
 
-                                <p>"{review.reviewDesc}"</p>
-                                <h4> - {review.name}</h4>
-                                <h6>{review.address}</h6>
+                                <div className="text-start text-white">
 
-                                <ReactStars
-                                    count={review.rating}
-                                    size={24}
-                                    color="#ffd700"
-                                />
+                                    <p>"{review.reviewDesc}"</p>
+                                    <h4> - {review.name}</h4>
+                                    <h6>{review.address}</h6>
+
+                                    <ReactStars
+                                        count={review.rating}
+                                        size={24}
+                                        color="#ffd700"
+                                    />
+                                </div>
+
                             </div>
 
-                        </div>
+                        )
+                    }
 
-                    )
-                }
+                </Slider>
+            </div>
 
-            </Slider>
 
         </div >
     );

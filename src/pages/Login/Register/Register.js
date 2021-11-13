@@ -13,7 +13,7 @@ const Register = () => {
 
     const location = useLocation();
     const history = useHistory();
-    const redirect_uri = location.state?.from || '/home';
+    const redirect_uri = location.state?.from || '/dashboard';
 
     return (
         <div className="bg-dark" style={{ height: '100vh' }}>

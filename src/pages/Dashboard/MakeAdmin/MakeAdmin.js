@@ -12,6 +12,7 @@ const MakeAdmin = () => {
         setEmail(e.target.value);
     }
 
+    // handle make admin
     const handleMakeAdmin = e => {
         const user = { email };
 
@@ -28,15 +29,17 @@ const MakeAdmin = () => {
                     setSuccess(true);
                 }
             })
-
-
         e.preventDefault();
-    }
+    };
+
 
     return (
         <div>
+            {/* make admin title */}
             <h2>Make an Admin</h2>
 
+
+            {/* input form for making admin */}
             <form onSubmit={handleMakeAdmin}>
 
                 <InputGroup className="mb-3 mt-4 w-50 mx-auto">
@@ -49,6 +52,7 @@ const MakeAdmin = () => {
                         type="email"
 
                     />
+
                     <InputGroup.Text id="basic-addon2"
                         className="bg-primary bg-opacity-75 ">
                         <FontAwesomeIcon className="fs-5 text-white mx-3" icon={faUser} />
@@ -62,6 +66,8 @@ const MakeAdmin = () => {
                 </Button><br />
 
             </form>
+
+
             {
                 success && <Alert variant='success'>
                     Made Admin Successfully

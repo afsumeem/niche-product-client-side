@@ -7,7 +7,7 @@ const Facility = () => {
     return (
 
         // facility section
-        <Row className="border-top mt-5 mb-5">
+        <Row className="border-top mt-5 mb-5 container mx-auto">
 
             {/* facility -1 */}
             <Col xs={12} sm={12} md={4} className="pt-4 border">

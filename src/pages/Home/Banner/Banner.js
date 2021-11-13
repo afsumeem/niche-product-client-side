@@ -1,86 +1,80 @@
 import React from 'react';
-import { Carousel } from 'react-carousel-minimal';
+import { Carousel } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import banner1 from '../../../images/banner/banner-1.jpg';
+import banner2 from '../../../images/banner/banner-2.jpg';
+import banner3 from '../../../images/banner/banner-3.jpg';
+import banner4 from '../../../images/banner/banner-4.jpg';
+import './Banner.css';
 
 const Banner = () => {
-    const data = [
-        {
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-            caption: "San Francisco"
-        },
-        {
-            image: "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
-            caption: "Scotland"
-        },
-        {
-            image: "https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
-            caption: "Darjeeling"
-        },
-        {
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
-            caption: "San Francisco"
-        },
-        {
-            image: "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-            caption: "Scotland"
-        },
-        {
-            image: "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-            caption: "Darjeeling"
-        },
-        {
-            image: "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
-            caption: "San Francisco"
-        },
-        {
-            image: "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-            caption: "Scotland"
-        },
-        {
-            image: "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-            caption: "Darjeeling"
-        }
-    ];
 
-    const captionStyle = {
-        fontSize: '2em',
-        fontWeight: 'bold',
-    }
-    const slideNumberStyle = {
-        fontSize: '20px',
-        fontWeight: 'bold',
-    }
     return (
-        <div>
-            <div style={{ textAlign: "center" }}>
-                <div style={{
-                    paddingTop: "30px"
-                }}>
-                    <Carousel
-                        data={data}
-                        time={2000}
-                        width="100vw"
-                        height="500px"
-                        captionStyle={captionStyle}
-                        slideNumber={true}
-                        slideNumberStyle={slideNumberStyle}
-                        captionPosition="bottom"
-                        automatic={true}
-                        dots={true}
-                        pauseIconColor="white"
-                        pauseIconSize="40px"
-                        slideBackgroundColor="darkgrey"
-                        slideImageFit="cover"
-                        thumbnails={true}
-                        thumbnailWidth="100px"
-                        style={{
-                            textAlign: "center",
-                            maxHeight: "500px",
-                            margin: "40px auto",
-                        }}
+        <div className="banner-container bg-dark">
+            <Carousel fade>
+
+                {/* carousel item */}
+                <Carousel.Item>
+                    <img
+                        className="w-100"
+                        src={banner1}
+                        alt="First slide"
                     />
-                </div>
-            </div>
-        </div >
+                    <Carousel.Caption className="mb-5">
+                        <h2 className="mb-3">Refreshing and Clean Spring Scents are Here!</h2>
+                        <h5 className="mb-5">Refreshing and Clean Spring Scents are Here!</h5>
+
+                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
+                    </Carousel.Caption>
+
+                </Carousel.Item>
+
+                {/* carousel item */}
+                <Carousel.Item>
+                    <img
+                        className="w-100"
+                        src={banner2}
+                        alt="Second slide"
+                    />
+
+                    <Carousel.Caption className="mb-5">
+                        <h2 className="mb-3">Exclusive Top Quality Womans Perfumes.</h2>
+                        <h5 className="mb-5">Exclusive Top Quality Womans Perfumes.</h5>
+                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
+                {/* carousel item */}
+                <Carousel.Item>
+                    <img
+                        className="w-100"
+                        src={banner3}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption className="mb-5">
+                        <h2 className="mb-3">Refreshing and Clean Spring Scents are Here!</h2>
+                        <h5 className="mb-5">Refreshing and Clean Spring Scents are Here!</h5>
+                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
+                {/* carousel item */}
+                <Carousel.Item>
+                    <img
+                        className="w-100"
+                        src={banner4}
+                        alt="Third slide"
+                    />
+
+                    <Carousel.Caption className="mb-5">
+                        <h2 className="mb-3">A new Fragrance from the Spanish Fashion Brand Scalpers</h2>
+                        <h5 className="mb-5">Exclusive Top Quality Womans Perfumes</h5>
+                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+        </div>
     );
 };
 

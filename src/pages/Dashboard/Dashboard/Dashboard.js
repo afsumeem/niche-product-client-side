@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Breadcrumb, Nav, Navbar } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,60 +12,99 @@ import MyOrders from '../MyOrders/MyOrders/MyOrders';
 import AddNewProduct from '../AddNewProduct/AddNewProduct';
 import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faFileInvoiceDollar, faShoppingBasket, faSignOutAlt, faTasks, faUser, faUsersCog, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { faCommentAlt, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import Payment from '../Payment/Payment';
+import AdminRoute from '../../AdminRoute/AdminRoute';
+
 
 
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
 
-    const { user, logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
 
     return (
 
-        <Row >
-            <Col xs={12} md={3} >
-                <Navbar bg="dark" expand="lg">
+        <Row className="me-0">
+            <Col xs={12} sm={12} md={3} className="px-0">
+                <Navbar bg="dark" expand="md">
                     <Container className=" d-flex flex-column">
-                        <Navbar.Brand className="text-white me-auto" href="#home"></Navbar.Brand>
+                        <Navbar.Brand className="text-white me-auto" href="/home">The Fragrance Shop</Navbar.Brand>
 
-                        <Navbar.Text className="text-info me-auto my-3 text-start fw-bolder mx-2">
-                            <FontAwesomeIcon className="fs-6 me-1" icon={faUser} />
-                            {user.displayName && user.displayName}
+                        <hr className="w-100 bg-white" />
+
+                        <Navbar.Text className="text-white my-1 text-start me-auto">
+                            <FontAwesomeIcon className="fs-4 me-2" icon={faUsersCog} />
+                            Dashboard
                         </Navbar.Text>
 
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <hr className="w-100 bg-white" />
+
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-auto text-start" />
 
                         <Navbar.Collapse id="basic-navbar-nav" className="me-auto text-start">
                             <Nav className="d-flex flex-column">
 
-                                <NavLink to={`${url}/manageOrder`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    Manage All Order
-                                </NavLink><br />
-
-                                <NavLink to={`${url}/manageProduct`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    Manage Products
-                                </NavLink><br />
-
-                                <NavLink to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    Make Admin
-                                </NavLink><br />
-
-                                <hr className="w-100 mx-auto bg-white" />
 
                                 <NavLink to={`${url}/postReview`} style={{ textDecoration: 'none', color: 'white' }}>
+                                    <FontAwesomeIcon className="fs-6 me-2" icon={faCommentAlt} />
                                     Add Review
                                 </NavLink><br />
 
-                                <NavLink to={`${url}/newProduct`} style={{ textDecoration: 'none', color: 'white' }}>
-                                    Add New Product
-                                </NavLink><br />
-
                                 <NavLink to={`${url}/myorder`} style={{ textDecoration: 'none', color: 'white' }}>
+                                    <FontAwesomeIcon className="fs-6 me-2" icon={faCartPlus} />
                                     My Orders
                                 </NavLink><br />
 
-                                <NavLink onClick={logOut} className="text-decoration-none  text-white" to="/home">Logout</NavLink>
+                                <NavLink to={`${url}/payment`} style={{ textDecoration: 'none', color: 'white' }}>
+                                    <FontAwesomeIcon className="fs-6 me-2" icon={faFileInvoiceDollar} />
+                                    Payment
+                                </NavLink><br />
+
+                                {
+                                    admin &&
+                                    <>
+                                        <NavLink to={`${url}/newProduct`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faPlusSquare} />
+                                            Add New Product
+                                        </NavLink><br />
+
+                                        <NavLink to={`${url}/manageProduct`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faTasks} />
+                                            Manage Products
+                                        </NavLink><br />
+
+
+                                        <hr className="w-100 bg-white" />
+
+                                        <NavLink to={`${url}/manageOrder`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faShoppingBasket} />
+                                            Manage All Order
+                                        </NavLink><br />
+
+                                        <NavLink to={`${url}/makeAdmin`} style={{ textDecoration: 'none', color: 'white' }}>
+                                            <FontAwesomeIcon className="fs-6 me-2" icon={faUserShield} />
+                                            Make Admin
+                                        </NavLink><br />
+
+                                    </>
+                                }
+
+                                <hr className="w-100 mx-auto text-white" />
+
+                                <Navbar.Text className="text-white my-1 text-start fw-bolder me-auto">
+                                    <FontAwesomeIcon className="fs-6 me-2" icon={faUser} />
+                                    <span className="text-info">
+                                        {user.displayName && user.displayName}
+                                    </span>
+                                </Navbar.Text>
+
+                                <NavLink onClick={logOut} className="text-decoration-none  text-white" to="/home">
+                                    <FontAwesomeIcon className="fs-6 me-2" icon={faSignOutAlt} />
+                                    Logout
+                                </NavLink>
 
 
                             </Nav>
@@ -74,31 +113,42 @@ const Dashboard = () => {
                 </Navbar>
             </Col>
 
-            <Col sm={12} md={9}>
+
+            <Col sx={12} sm={12} md={9} className="px-0">
+
+                <Breadcrumb className="my-4 ms-3">
+                    <Breadcrumb.Item href="/home" className="fs-4">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item className="fs-4">Dashboard</Breadcrumb.Item>
+                </Breadcrumb>
+                <hr />
 
                 {/* //nested route */}
 
                 <Switch>
 
-                    <Route path={`${path}/manageOrder`}>
+                    <AdminRoute path={`${path}/manageOrder`}>
                         <ManageAllOrders></ManageAllOrders>
-                    </Route>
+                    </AdminRoute>
 
-                    <Route path={`${path}/manageProduct`}>
+                    <AdminRoute path={`${path}/manageProduct`}>
                         <ManageProducts></ManageProducts>
-                    </Route>
+                    </AdminRoute>
 
-                    <Route path={`${path}/makeAdmin`}>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
+
+                    <Route path={`${path}/payment`}>
+                        <Payment></Payment>
                     </Route>
 
                     <Route path={`${path}/postReview`}>
                         <PostReview></PostReview>
                     </Route>
 
-                    <Route path={`${path}/newProduct`}>
+                    <AdminRoute path={`${path}/newProduct`}>
                         <AddNewProduct></AddNewProduct>
-                    </Route>
+                    </AdminRoute>
 
                     <Route path={`${path}/myOrder`}>
                         <MyOrders></MyOrders>
@@ -106,7 +156,7 @@ const Dashboard = () => {
 
                 </Switch>
             </Col>
-        </Row>
+        </Row >
 
     );
 };

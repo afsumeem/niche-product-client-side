@@ -12,19 +12,18 @@ const FragranceBrands = () => {
     }, []);
     return (
         <div className="container">
-            <div className="mt-5">
-                <h2 className="pt-5">Top Fragrance Brands {brands.length}</h2>
-                <Row xs={1} md={3} sm={2} className="g-4">
-                    {
-                        brands.map(brand => <Brand
-                            key={brand._id}
-                            brand={brand}
-                        >
-                        </Brand>)
-                    }
-                </Row>
 
-            </div>
+            <h2 className="pt-5 pb-3">Top Fragrance Brands</h2>
+            <Row xs={1} md={3} sm={2} className="g-5">
+                {
+                    brands.map(brand => <Brand
+                        key={brand._id}
+                        brand={brand}
+                    >
+                    </Brand>)
+                }
+            </Row>
+
         </div>
     );
 };

@@ -25,6 +25,10 @@ const Header = () => {
                         <Nav className="ms-auto">
                             <NavLink to="/home" className="text-decoration-none mx-3 rounded py-2 px-2 text-white  menu-item d-flex align-items-center">Home</NavLink>
 
+                            <NavLink to="/about" className="text-decoration-none mx-3 rounded py-2 px-2 text-white  menu-item d-flex align-items-center">About</NavLink>
+
+
+
                             <NavLink to="/explore" className="text-decoration-none mx-3 rounded py-2 px-2 text-white  menu-item d-flex align-items-center">Explore</NavLink>
 
 

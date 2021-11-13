@@ -9,6 +9,7 @@ import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import PurchaseProducts from './pages/PurchaseProducts/PurchaseProducts';
 import Register from './pages/Login/Register/Register';
 import NotFound from './pages/NotFound/NotFound';
+import About from './About/About';
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
 
             <Route exact path="/home">
               <Home></Home>
+            </Route>
+
+            <Route to="/about">
+              <About></About>
             </Route>
 
             <Route path="/explore">

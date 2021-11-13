@@ -56,7 +56,7 @@ const PurchaseProducts = () => {
                     <div className="col-md-6">
 
                         {/* Place order header */}
-                        <h2 className="text-dark ">Booking Form</h2>
+                        <h3 className="text-dark ">Order your Favorite Fragrance</h3>
                         <div className="d-flex justify-content-center">
 
 
@@ -68,6 +68,8 @@ const PurchaseProducts = () => {
                                 {productDetails.name &&
                                     <input className="mx-3 my-2 w-75 px-4 py-2" value={productDetails.name} {...register("productName", { required: true })} />
                                 }
+
+                                <input className="mx-3 my-2 w-75 px-4 py-2" value={productDetails.price} {...register("price", { required: true })} />
 
                                 <input className="mx-3 my-2 w-75 px-4 py-2" placeholder="Address"{...register("Address", { required: true })} />
 

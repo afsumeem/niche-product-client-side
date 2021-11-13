@@ -1,3 +1,6 @@
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
@@ -46,15 +49,26 @@ const ManageOrder = ({ allOrder }) => {
     };
 
     return (
-        <div>
-            <p>Name: {name}</p>
-            <h2>{productName}</h2>
+        <>
+            <tr>
+                <td className="p-3">{name}</td>
+                <td className="p-3">{productName}</td>
+                <td className="p-3">{date}</td>
+                <td className="p-3">{status}</td>
+                <td>
 
-            <h5>{date}</h5>
-            <h3>{status}</h3>
+                    <button className="border-0 btn btn-0 text-success" title="Confirm Order" onClick={handleUpdateStatus}>
 
-            <button onClick={() => { setShow(true); }}>cancel order</button>
-            <Button onClick={handleUpdateStatus} className=" m-0 p-2 rounded-0" variant="outline-info">Order Confirm</Button>
+                        <FontAwesomeIcon className="fs-6 me-2" icon={faCheck} />
+                    </button>
+
+                    <button className="border-0 btn btn-0 text-danger" title="Delete order" onClick={() => { setShow(true); }}>
+
+                        <FontAwesomeIcon className="fs-6 me-2" icon={faTrashAlt} />
+                    </button>
+                </td>
+            </tr>
+
 
             {/* Confirmation alert */}
             <Modal show={show} onHide={handleClose}>
@@ -75,7 +89,7 @@ const ManageOrder = ({ allOrder }) => {
                 </Modal.Footer>
             </Modal>
 
-        </div>
+        </>
     );
 };
 

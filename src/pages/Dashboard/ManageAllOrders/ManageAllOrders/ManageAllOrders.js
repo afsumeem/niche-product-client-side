@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 import ManageOrder from '../ManageOrder/ManageOrder';
 
 const ManageAllOrders = () => {
@@ -14,14 +15,29 @@ const ManageAllOrders = () => {
     return (
         <div>
             <h2>Manage All Orders {allOrders.length}</h2>
-            {
-                allOrders.map(allOrder => <ManageOrder
 
-                    key={allOrder._id}
-                    allOrder={allOrder}
+            <Table striped bordered hover size="sm" className=" fs-6 border-4">
+                <thead>
+                    <tr>
+                        <th className="p-2">Name</th>
+                        <th className="p-2">Product Name</th>
+                        <th className="p-2">Order Date</th>
+                        <th className="p-2">Order Status</th>
+                        <th className="p-2">Manage Order</th>
+                    </tr>
+                </thead>
 
-                ></ManageOrder>)
-            }
+                <tbody>
+                    {
+                        allOrders.map(allOrder => <ManageOrder
+
+                            key={allOrder._id}
+                            allOrder={allOrder}
+
+                        ></ManageOrder>)
+                    }
+                </tbody>
+            </Table>
         </div>
     );
 };

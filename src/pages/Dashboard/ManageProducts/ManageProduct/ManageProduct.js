@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { faEye, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState, useEffect } from 'react';
+import { Modal, Button, Card } from 'react-bootstrap';
 
 const ManageProduct = ({ manage }) => {
 
-    const { name, price, _id } = manage;
-
+    const { name, price, _id, img, desc } = manage;
+    const [showDetails, setShowDetails] = useState(false);
 
     const [show, setShow] = useState(false);
+
+    const handleOkBtn = () => setShowDetails(false);
     const handleClose = () => setShow(false);
     const handleNoBtn = () => setShow(false);
 
 
+    //delete product
     const handleDeleteProduct = id => {
         const url = `http://localhost:5000/brands/${id}`
 
@@ -26,14 +31,61 @@ const ManageProduct = ({ manage }) => {
             .finally(setShow(false))
     };
 
+
+
     return (
 
-        <div>
-            <p>Name: {name}</p>
-            <h2>{price}</h2>
+        <>
+            <tr>
+                <td>{name}</td>
+                <td>{price}</td>
+                <td>
+
+                    <button className="border-0 btn btn-0" title="View Details" onClick={() => { setShowDetails(true); }}>
+                        <FontAwesomeIcon className="fs-6 me-2" icon={faEye} />
+                    </button>
 
 
-            <button onClick={() => { setShow(true); }}>Delete Product</button>
+                    <button className="border-0 btn btn-0" title="Delete Product" onClick={() => { setShow(true); }}>
+
+                        <FontAwesomeIcon className="fs-6 me-2" icon={faTrashAlt} />
+                    </button>
+                </td>
+            </tr>
+
+
+            {/* Product details */}
+
+
+
+            <Modal show={showDetails} onHide={handleClose}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Card>
+                    <Card.Img variant="top" src={img} style={{ height: '200px', width: '200px', margin: 'auto', padding: '20px' }} />
+
+                    <Card.Body>
+                        <Card.Title>{name}</Card.Title>
+                        <Card.Text>
+                            {desc}
+                        </Card.Text>
+
+                        <Card.Text className="fs-3">
+                            $ {price}
+                        </Card.Text>
+                    </Card.Body>
+
+                    <Modal.Footer>
+                        <Button variant="outline-success" onClick={handleOkBtn}>
+                            Ok
+                        </Button>
+                    </Modal.Footer>
+                </Card>
+            </Modal>
+
+
+
 
             {/* Confirmation alert */}
             <Modal show={show} onHide={handleClose}>
@@ -54,7 +106,7 @@ const ManageProduct = ({ manage }) => {
                 </Modal.Footer>
             </Modal>
 
-        </div>
+        </>
     );
 };
 

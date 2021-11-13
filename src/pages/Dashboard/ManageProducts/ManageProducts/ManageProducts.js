@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 import ManageProduct from '../ManageProduct/ManageProduct';
 
 
@@ -13,17 +14,31 @@ const ManageProducts = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Manage Products {manageProducts.length}</h2>
+        <div className="bg-primary bg-opacity-25 pb-5 pt-3 my-0">
+            <h2 className="my-4">Manage All Products</h2>
+            <Table striped bordered hover size="sm" className="w-75 mx-auto fs-5 ">
+                <thead>
+                    <tr>
+                        <th className="p-3">Product Name</th>
+                        <th className="p-3">Price</th>
+                        <th className="p-3">Manage Products</th>
+                    </tr>
+                </thead>
 
-            {
-                manageProducts.map(manage => <ManageProduct
+                <tbody>
 
-                    key={manage._id}
-                    manage={manage}
+                    {
+                        manageProducts.map(manage => <ManageProduct
 
-                ></ManageProduct>)
-            }
+                            key={manage._id}
+                            manage={manage}
+
+                        ></ManageProduct>)
+                    }
+                </tbody>
+            </Table>
+
+
 
         </div>
     );

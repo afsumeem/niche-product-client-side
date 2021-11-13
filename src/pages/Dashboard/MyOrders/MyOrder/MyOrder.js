@@ -1,13 +1,17 @@
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 const MyOrder = ({ myOrder }) => {
 
-    const { productName, name, date, _id, status } = myOrder;
+    const { productName, name, date, _id, status, price, Address } = myOrder;
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleNoBtn = () => setShow(false);
+
+    // handle delete order
 
     const handleDeleteOrder = id => {
         const url = `http://localhost:5000/orders/${id}`
@@ -26,14 +30,22 @@ const MyOrder = ({ myOrder }) => {
 
 
     return (
-        <div>
-            <p>Name: {name}</p>
-            <h2>{productName}</h2>
+        <>
+            <tr>
+                <td className="p-3">{name}</td>
+                <td className="p-3">{productName}</td>
+                <td className="p-3">{Address}</td>
+                <td className="p-3">{price}</td>
+                <td className="p-3">{date}</td>
+                <td className="p-3">{status}</td>
+                <td>
 
-            <h5>{date}</h5>
-            <h3>{status}</h3>
+                    <button className="border-0 btn btn-0 text-danger" title="Delete Product" onClick={() => { setShow(true); }}>
 
-            <button onClick={() => { setShow(true); }}>cancel order</button>
+                        <FontAwesomeIcon className="fs-6 me-2" icon={faTrashAlt} />
+                    </button>
+                </td>
+            </tr>
 
             {/* Confirmation alert */}
             <Modal show={show} onHide={handleClose}>
@@ -55,7 +67,7 @@ const MyOrder = ({ myOrder }) => {
             </Modal>
 
 
-        </div>
+        </>
     );
 };
 

@@ -150,7 +150,7 @@ const Dashboard = () => {
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
 
-                    <Route path={`${path}/payment`}>
+                    <Route path={`${path}/payment/:appointmentId`}>
                         <Payment></Payment>
                     </Route>
 

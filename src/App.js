@@ -48,7 +48,6 @@ function App() {
               <Register></Register>
             </Route>
 
-
             <PrivateRoute path="/purchase/:id">
               <PurchaseProducts></PurchaseProducts>
             </PrivateRoute>

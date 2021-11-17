@@ -2,10 +2,11 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const MyOrder = ({ myOrder }) => {
 
-    const { productName, name, date, _id, status, price, Address } = myOrder;
+    const { productName, name, date, _id, price, Address, payment } = myOrder;
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -37,7 +38,6 @@ const MyOrder = ({ myOrder }) => {
                 <td className="p-3">{Address}</td>
                 <td className="p-3">{price}</td>
                 <td className="p-3">{date}</td>
-                <td className="p-3">{status}</td>
                 <td>
 
                     <button className="border-0 btn btn-0 text-danger" title="Delete Product" onClick={() => { setShow(true); }}>
@@ -45,10 +45,17 @@ const MyOrder = ({ myOrder }) => {
                         <FontAwesomeIcon className="fs-6 me-2" icon={faTrashAlt} />
                     </button>
                 </td>
-            </tr>
+
+                <td className="p-3">{payment ?
+                    'Paid' :
+                    <Link to={`/dashboard/payment/${_id}`}>
+                        <button>Pay</button>
+                    </Link>}
+                </td>
+            </tr >
 
             {/* Confirmation alert */}
-            <Modal show={show} onHide={handleClose}>
+            < Modal show={show} onHide={handleClose} >
 
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
@@ -64,7 +71,7 @@ const MyOrder = ({ myOrder }) => {
                         No
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal >
 
 
         </>

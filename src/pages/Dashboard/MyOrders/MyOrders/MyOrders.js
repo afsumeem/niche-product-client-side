@@ -31,8 +31,8 @@ const MyOrders = () => {
                         <th className="p-2">Address</th>
                         <th className="p-2">Price</th>
                         <th className="p-2">Order Date</th>
-                        <th className="p-2">Order Status</th>
                         <th className="p-2">Manage Order</th>
+                        <th className="p-2">Action</th>
                     </tr>
                 </thead>
 

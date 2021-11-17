@@ -71,7 +71,9 @@ const PurchaseProducts = () => {
                                     <input className="mx-3 my-2 w-75 px-4 py-2" value={productDetails.name} {...register("productName", { required: true })} />
                                 }
 
-                                <input className="mx-3 my-2 w-75 px-4 py-2" defaultValue={productDetails.price} {...register("price")} />
+                                {productDetails.price &&
+                                    <input className="mx-3 my-2 w-75 px-4 py-2" value={productDetails.price} {...register("price", { required: true })} />
+                                }
 
                                 <input className="mx-3 my-2 w-75 px-4 py-2" placeholder="Address"{...register("Address", { required: true })} />
 

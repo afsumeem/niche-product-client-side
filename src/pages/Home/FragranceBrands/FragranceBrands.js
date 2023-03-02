@@ -8,7 +8,7 @@ const FragranceBrands = () => {
     // fetch brand from api
 
     useEffect(() => {
-        fetch('https://ancient-headland-15558.herokuapp.com/brands')
+        fetch('https://fragrance-shop.onrender.com/brands')
             .then(res => res.json())
             .then(data => setBrands(data.slice(0, 6)))
     }, []);

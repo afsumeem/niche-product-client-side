@@ -17,7 +17,7 @@ const ManageProduct = ({ manage }) => {
 
     //delete product
     const handleDeleteProduct = id => {
-        const url = `https://ancient-headland-15558.herokuapp.com/brands/${id}`
+        const url = `https://fragrance-shop.onrender.com/brands/${id}`
 
         fetch(url, {
             method: 'DELETE'

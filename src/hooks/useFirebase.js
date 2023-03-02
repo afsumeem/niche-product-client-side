@@ -130,7 +130,7 @@ const useFirebase = () => {
 
         const users = { name: name, email: email };
 
-        fetch('https://ancient-headland-15558.herokuapp.com/users', {
+        fetch('https://fragrance-shop.onrender.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -143,7 +143,7 @@ const useFirebase = () => {
     // check admin
 
     useEffect(() => {
-        fetch(`https://ancient-headland-15558.herokuapp.com/users/${user.email}`)
+        fetch(`https://fragrance-shop.onrender.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

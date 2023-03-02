@@ -21,7 +21,7 @@ const PurchaseProducts = () => {
 
     useEffect(() => {
 
-        const url = `https://ancient-headland-15558.herokuapp.com/brands/${id}`
+        const url = `https://fragrance-shop.onrender.com/brands/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProductDetails(data))
@@ -30,7 +30,7 @@ const PurchaseProducts = () => {
     // handle submit
     const onSubmit = data => {
 
-        axios.post('https://ancient-headland-15558.herokuapp.com/orders', data)
+        axios.post('https://fragrance-shop.onrender.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Form submitted successfully");

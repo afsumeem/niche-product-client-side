@@ -9,7 +9,7 @@ import ExploreBrand from '../ExploreBrand/ExploreBrand';
 const ExploreBrands = () => {
     const [exploreBrands, setExploreBrands] = useState([]);
     useEffect(() => {
-        fetch('https://ancient-headland-15558.herokuapp.com/brands')
+        fetch('https://fragrance-shop.onrender.com/brands')
             .then(res => res.json())
             .then(data => setExploreBrands(data))
     }, []);

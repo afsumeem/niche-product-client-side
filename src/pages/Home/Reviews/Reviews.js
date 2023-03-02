@@ -18,7 +18,7 @@ const Reviews = () => {
 
     // load reviews from api
     useEffect(() => {
-        fetch('https://ancient-headland-15558.herokuapp.com/reviews')
+        fetch('https://fragrance-shop.onrender.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [reviews]);

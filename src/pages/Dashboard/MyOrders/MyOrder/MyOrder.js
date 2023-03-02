@@ -15,7 +15,7 @@ const MyOrder = ({ myOrder }) => {
     // handle delete order
 
     const handleDeleteOrder = id => {
-        const url = `https://ancient-headland-15558.herokuapp.com/orders/${id}`
+        const url = `https://fragrance-shop.onrender.com/orders/${id}`
 
         fetch(url, {
             method: 'DELETE'

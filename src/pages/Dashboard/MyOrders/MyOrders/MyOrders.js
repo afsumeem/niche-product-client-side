@@ -11,7 +11,7 @@ const MyOrders = () => {
     //fetch orders from API
 
     useEffect(() => {
-        fetch('https://ancient-headland-15558.herokuapp.com/orders')
+        fetch('https://fragrance-shop.onrender.com/orders')
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, []);

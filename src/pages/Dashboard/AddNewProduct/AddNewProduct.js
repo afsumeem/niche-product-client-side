@@ -11,7 +11,7 @@ const AddNewProduct = () => {
     // handle submit button 
     const onSubmit = data => {
 
-        axios.post('https://ancient-headland-15558.herokuapp.com/brands', data)
+        axios.post('https://fragrance-shop.onrender.com/brands', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Product Added successfully");

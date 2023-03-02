@@ -16,7 +16,7 @@ const PostReview = () => {
 
     const onSubmit = data => {
 
-        axios.post('https://ancient-headland-15558.herokuapp.com/reviews', data)
+        axios.post('https://fragrance-shop.onrender.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert("Review Added successfully");

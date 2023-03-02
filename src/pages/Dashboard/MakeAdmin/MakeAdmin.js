@@ -17,7 +17,7 @@ const MakeAdmin = () => {
         const user = { email };
 
 
-        fetch('https://ancient-headland-15558.herokuapp.com/users/admin', {
+        fetch('https://fragrance-shop.onrender.com/users/admin', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)

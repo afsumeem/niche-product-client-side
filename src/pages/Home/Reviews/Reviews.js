@@ -39,19 +39,21 @@ const Reviews = () => {
         </h3>
         <Slider {...settings} className="container">
           {reviews.map((review) => (
-            <div className="w-50 mx-auto" key={review._id}>
+            <div className="w-50 d-block mx-auto" key={review._id}>
               <img
                 src={review.img}
                 alt=""
                 style={{
                   height: "100px",
                   width: "100px",
+                  display: "block",
+                  margin: "auto",
                   borderRadius: "50%",
                   marginBottom: "20px",
                 }}
               />
 
-              <div className="text-start text-white">
+              <div className=" text-white">
                 <p>"{review.reviewDesc}"</p>
                 <h4
                   style={{
@@ -59,11 +61,15 @@ const Reviews = () => {
                   }}
                 >
                   {" "}
-                  - {review.name}
+                  {review.name}
                 </h4>
                 <h6>{review.address}</h6>
 
-                <ReactStars count={review.rating} size={24} color="#ffd700" />
+                <ReactStars
+                  count={review.rating}
+                  size={24}
+                  color="var(--golden)"
+                />
               </div>
             </div>
           ))}

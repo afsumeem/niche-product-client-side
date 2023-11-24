@@ -1,6 +1,23 @@
 /* banner img style */
 
-.banner-container img{
+.banner-container {
     height:100vh;
-    opacity: 0.3;
+   
+}
+
+.banner-description h2{
+font-weight: 100;
+font-size: 3rem;
+}
+
+.banner-description p{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: 200;
+    font-size: 1rem;  
+}
+
+
+.banner-img img{
+    height: 450px;
 }

@@ -1,81 +1,60 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import banner1 from '../../../images/banner/banner-1.jpg';
-import banner2 from '../../../images/banner/banner-2.jpg';
-import banner3 from '../../../images/banner/banner-3.jpg';
-import banner4 from '../../../images/banner/banner-4.jpg';
-import './Banner.css';
+import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+// import banner1 from "../../../images/banner/banner-1.jpg";
+import banner1 from "../../../images/banner/perfume-removebg-preview.png";
+// import banner1 from "../../../images/banner/perfume.PNG";
+
+import "./Banner.css";
 
 const Banner = () => {
+  return (
+    <Container className="banner-container">
+      <Row className="d-flex justify-content-center align-items-center h-100">
+        <Col>
+          <div className="banner-description">
+            <h2 className="text-white">
+              Discover Irresistible Fragrances at{" "}
+              <span
+                style={{
+                  color: "var(--golden)",
+                  fontWeight: 400,
+                }}
+              >
+                {" "}
+                Fragrance Shop!
+              </span>
+            </h2>
+            <p className="text-white">
+              Indulge in Timeless Elegance – Unveil a Symphony of Scents Crafted
+              for Every Occasion.Indulge in Timeless Elegance – Unveil a
+              Symphony of Scents Crafted for Every Occasion.
+            </p>
+          </div>
 
-    return (
-        <div className="banner-container bg-dark">
-            <Carousel fade>
-
-                {/* carousel item */}
-                <Carousel.Item>
-                    <img
-                        className="w-100"
-                        src={banner1}
-                        alt="First slide"
-                    />
-                    <Carousel.Caption className="mb-5">
-                        <h2 className="mb-3">Refreshing and Clean Spring Scents are Here!</h2>
-                        <h5 className="mb-5">Refreshing and Clean Spring Scents are Here!</h5>
-
-                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
-                    </Carousel.Caption>
-
-                </Carousel.Item>
-
-                {/* carousel item */}
-                <Carousel.Item>
-                    <img
-                        className="w-100"
-                        src={banner2}
-                        alt="Second slide"
-                    />
-
-                    <Carousel.Caption className="mb-5">
-                        <h2 className="mb-3">Exclusive Top Quality Womans Perfumes.</h2>
-                        <h5 className="mb-5">Exclusive Top Quality Womans Perfumes.</h5>
-                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
-                    </Carousel.Caption>
-                </Carousel.Item>
-
-                {/* carousel item */}
-                <Carousel.Item>
-                    <img
-                        className="w-100"
-                        src={banner3}
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption className="mb-5">
-                        <h2 className="mb-3">Refreshing and Clean Spring Scents are Here!</h2>
-                        <h5 className="mb-5">Refreshing and Clean Spring Scents are Here!</h5>
-                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
-                    </Carousel.Caption>
-                </Carousel.Item>
-
-                {/* carousel item */}
-                <Carousel.Item>
-                    <img
-                        className="w-100"
-                        src={banner4}
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption className="mb-5">
-                        <h2 className="mb-3">A new Fragrance from the Spanish Fashion Brand Scalpers</h2>
-                        <h5 className="mb-5">Exclusive Top Quality Womans Perfumes</h5>
-                        <NavLink to="/explore" className="btn btn-outline-warning">Explore Your Favorite Fragrance</NavLink>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-        </div>
-    );
+          <NavLink
+            to="/explore"
+            className="btn "
+            style={{
+              border: "1px solid var(--golden)",
+              color: "var(--golden)",
+            }}
+          >
+            Explore
+          </NavLink>
+        </Col>
+        <Col>
+          <div className="banner-img">
+            <img
+              className="d-block m-auto banner-img"
+              src={banner1}
+              alt="Banner Img"
+            />
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default Banner;

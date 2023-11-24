@@ -1,0 +1,8 @@
+.brand-card{
+    background: linear-gradient(90deg, rgba(36,36,36,1) 0%, rgba(11,11,11,1) 99%);
+    border:1px solid rgb(58, 46, 27)
+}
+.brand-card:hover{
+   
+    border:1px solid rgb(114, 90, 52)
+}

@@ -1,178 +1,162 @@
-import { useEffect, useState } from 'react';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification, updateProfile, sendPasswordResetEmail } from "firebase/auth";
-import initializeFirebase from '../Firebase/firebase.init';
+import { useEffect, useState } from "react";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  sendEmailVerification,
+  updateProfile,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+import initializeFirebase from "../Firebase/firebase.init";
 
-initializeFirebase()
-
+initializeFirebase();
 
 const useFirebase = () => {
+  const auth = getAuth();
 
-    const auth = getAuth();
+  const [user, setUsers] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [admin, setAdmin] = useState(false);
 
-    const [user, setUsers] = useState({});
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState("");
-    const [admin, setAdmin] = useState(false);
+  //create and sign in user with email and password
 
+  const getUserName = (e) => {
+    setName(e.target.value);
+  };
+  const getUserEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const getUserPassword = (e) => {
+    setPassword(e.target.value);
+  };
 
+  //registration
 
-    //create and sign in user with email and password
-
-    const getUserName = e => {
-        setName(e.target.value);
-    };
-    const getUserEmail = e => {
-        setEmail(e.target.value);
-
-    };
-    const getUserPassword = e => {
-        setPassword(e.target.value);
-
-    };
-
-    //registration
-
-    const handleRegistration = () => {
-
-        if (password.length > 6) {
-            setError("password should have 6 character")
-            return;
-        }
-
-        return createUserWithEmailAndPassword(auth, email, password)
-
-    };
-
-
-    //user sign in with email and password
-
-    const userLogin = () => {
-
-        setIsLoading(true);
-
-        return signInWithEmailAndPassword(auth, email, password)
-
-    };
-
-
-    //set user name
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => { })
+  const handleRegistration = () => {
+    if (password.length > 6) {
+      setError("password should have 6 character");
+      return;
     }
 
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-    //verify users Email
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(result => {
-                console.log(result)
-            })
-    };
+  //user sign in with email and password
 
+  const userLogin = () => {
+    setIsLoading(true);
 
-    //reset password
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
-    const handleResetPassword = () => {
-        sendPasswordResetEmail(auth, email)
-            .then(result => {
-                alert('Password Reset Successfully! Check your email!!')
-            })
-    }
+  //set user name
+  const setUserName = () => {
+    updateProfile(auth.currentUser, { displayName: name }).then((result) => {});
+  };
 
+  //verify users Email
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser).then((result) => {
+      console.log(result);
+    });
+  };
 
-    //Google sign in
-    const googleProvider = new GoogleAuthProvider();
+  //reset password
 
-    const signInUsingGoogle = () => {
-        setIsLoading(true);
+  const handleResetPassword = () => {
+    sendPasswordResetEmail(auth, email).then((result) => {
+      alert("Password Reset Successfully! Check your email!!");
+    });
+  };
 
-        return signInWithPopup(auth, googleProvider)
-            .finally(() => setIsLoading(false));
-    };
+  //Google sign in
+  const googleProvider = new GoogleAuthProvider();
 
+  const signInUsingGoogle = () => {
+    setIsLoading(true);
 
-    //user state change
+    return signInWithPopup(auth, googleProvider).finally(() =>
+      setIsLoading(false)
+    );
+  };
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, user => {
-            if (user) {
-                setUsers(user)
-            } else {
-                setUsers({})
-            }
-            setIsLoading(false);
-        });
-        return () => unSubscribe;
-    }, [isLoading])
+  //user state change
 
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsers(user);
+      } else {
+        setUsers({});
+      }
+      setIsLoading(false);
+    });
+    return () => unSubscribe;
+  }, [isLoading]);
 
+  //Sign out
 
-    //Sign out
+  const logOut = () => {
+    setIsLoading(true);
 
-    const logOut = () => {
-        setIsLoading(true);
+    signOut(auth)
+      .then(() => {})
+      .finally(() => setIsLoading(false));
+  };
 
-        signOut(auth)
-            .then(() => { })
-            .finally(() => setIsLoading(false))
+  //save user to database
 
-    };
+  const saveUser = (name, email, method) => {
+    const users = { name: name, email: email };
 
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(users),
+    }).then();
+  };
 
+  // check admin
 
-    //save user to database
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
 
-    const saveUser = (name, email, method) => {
-
-        const users = { name: name, email: email };
-
-        fetch('https://fragrance-shop.onrender.com/users', {
-            method: method,
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(users)
-        })
-            .then()
-    }
-
-    // check admin
-
-    useEffect(() => {
-        fetch(`https://fragrance-shop.onrender.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
-
-
-    //return all functions
-    return {
-        user,
-        setUsers,
-        error,
-        setError,
-        name,
-        email,
-        setUserName,
-        password,
-        handleResetPassword,
-        getUserName,
-        getUserEmail,
-        getUserPassword,
-        verifyEmail,
-        userLogin,
-        handleRegistration,
-        signInUsingGoogle,
-        isLoading,
-        logOut,
-        saveUser,
-        admin
-    }
+  //return all functions
+  return {
+    user,
+    setUsers,
+    error,
+    setError,
+    name,
+    email,
+    setUserName,
+    password,
+    handleResetPassword,
+    getUserName,
+    getUserEmail,
+    getUserPassword,
+    verifyEmail,
+    userLogin,
+    handleRegistration,
+    signInUsingGoogle,
+    isLoading,
+    logOut,
+    saveUser,
+    admin,
+  };
 };
 
 export default useFirebase;
-

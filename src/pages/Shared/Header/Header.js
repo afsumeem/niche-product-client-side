@@ -14,7 +14,11 @@ const Header = () => {
       <Navbar className=" py-3 border-bottom border-dark" expand="lg">
         <Container>
           <NavLink to="/home" className=" text-decoration-none">
-            <Navbar.Brand className="text-warning ">
+            <Navbar.Brand
+              style={{
+                color: "var(--golden)",
+              }}
+            >
               Fragrance Shop
             </Navbar.Brand>
           </NavLink>

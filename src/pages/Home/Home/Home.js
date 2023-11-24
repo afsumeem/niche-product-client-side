@@ -1,36 +1,37 @@
-import React from 'react';
-import Footer from '../../Shared/Footer/Footer';
-import Header from '../../Shared/Header/Header';
-import Banner from '../Banner/Banner';
-import Facility from '../Facility/Facility';
-import FragranceBrands from '../FragranceBrands/FragranceBrands';
-import Reviews from '../Reviews/Reviews';
+import React from "react";
+import Footer from "../../Shared/Footer/Footer";
+import Header from "../../Shared/Header/Header";
+import Banner from "../Banner/Banner";
+import Facility from "../Facility/Facility";
+import FragranceBrands from "../FragranceBrands/FragranceBrands";
+import Reviews from "../Reviews/Reviews";
+import Offer from "../Offer/Offer";
 
 const Home = () => {
-    return (
+  return (
+    // home page
+    <div>
+      {/* header section */}
+      <Header></Header>
 
-        // home page
-        <div>
+      {/* banner section */}
+      <Banner></Banner>
 
-            {/* header section */}
-            <Header></Header>
+      {/* all fragrance brands */}
+      <FragranceBrands></FragranceBrands>
 
-            {/* banner section */}
-            <Banner></Banner>
+      {/* customer reviews */}
+      <Reviews></Reviews>
 
-            {/* all fragrance brands */}
-            <FragranceBrands></FragranceBrands>
+      {/* facilities section */}
+      <Facility></Facility>
 
-            {/* customer reviews */}
-            <Reviews></Reviews>
-
-            {/* facilities section */}
-            <Facility></Facility>
-
-            {/* footer section */}
-            <Footer></Footer>
-        </div>
-    );
+      {}
+      <Offer />
+      {/* footer section */}
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default Home;

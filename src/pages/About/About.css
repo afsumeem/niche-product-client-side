@@ -1,9 +1,53 @@
 /* style about us section */
 
-.about-us-thumbnail{
-    background-image: url("../../images/img-13.jpg");
-  background-repeat:repeat;
-  background-attachment: fixed;
-  margin-top: 25px;
-  height: 100vh;
+@media only screen and (max-width: 767px) {
+  .about-description{
+    padding: 20px;
+  }
+  .gallery-images{
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 }
+
+@media only screen and (min-width: 768px) {
+  .about-description{
+    padding: 30px 200px;
+  }
+  .gallery-images{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-gap: 15px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+  .gallery-images{
+    display: grid;
+    grid-template-columns:repeat(5, 1fr);
+    grid-gap: 15px;
+  }
+}
+
+.about-description{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../../images/img-14.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+
+.gallery-images img{
+  height: 200px;
+  transition: .5s ease;
+}
+
+.gallery-images img:hover{
+  box-shadow: 0 0 0 7px #4e3d0d;
+  transition: .5s ease;
+  opacity: 0.7;
+  }

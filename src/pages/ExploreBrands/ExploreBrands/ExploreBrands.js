@@ -22,7 +22,14 @@ const ExploreBrands = () => {
       {/* explore brands section */}
       <div className="container">
         <div className="my-5">
-          <h2 className="pt-5">EXPLORE ALL BRANDS</h2>
+          <h3
+            className="pb-3"
+            style={{
+              color: "var(--golden)",
+            }}
+          >
+            EXPLORE ALL BRANDS
+          </h3>
 
           {/* map all brands */}
 

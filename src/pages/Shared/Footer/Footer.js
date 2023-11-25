@@ -2,10 +2,8 @@ import React from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faDiscord,
   faFacebook,
   faInstagram,
-  faSkype,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -21,7 +19,7 @@ const Footer = () => {
       <Container className="pb-5">
         <Row>
           {/* footer first section */}
-          <div className="col-md-4 col-sm-12 text-white mt-4">
+          <div className="col-md-4 col-sm-12 text-white mt-4 ">
             <h4
               style={{
                 color: "var(--golden)",

@@ -1,71 +1,95 @@
-import React from 'react';
-import { Col, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import './About.css';
-import image1 from '../../images/form-bg.jpg';
-import image2 from '../../images/img-2.jpg';
-import image3 from '../../images/img-8.jpg';
-import image4 from '../../images/img-4.jpg';
-import image5 from '../../images/img-6.jpg';
-import Header from '../Shared/Header/Header';
-import Footer from '../Shared/Footer/Footer';
-
+import React from "react";
+import { Col, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import "./About.css";
+import image1 from "../../images/form-bg.jpg";
+import image2 from "../../images/img-2.jpg";
+import image3 from "../../images/img-8.jpg";
+import image4 from "../../images/img-4.jpg";
+import image5 from "../../images/img-6.jpg";
+import Header from "../Shared/Header/Header";
+import Footer from "../Shared/Footer/Footer";
 
 const About = () => {
-    return (
-        <div>
-            {/* header section */}
-            <Header></Header>
+  return (
+    <div>
+      {/* header section */}
+      <Header></Header>
 
-            {/* about us section */}
-            <Row className="mt-5 me-0">
+      {/* about us details */}
+      <div className="text-center about-description">
+        <h3
+          className="pt-5"
+          style={{
+            color: "var(--golden)",
+          }}
+        >
+          ABOUT US
+        </h3>
+        <p style={{ color: "rgb(196, 196, 196)" }}>
+          The Fragrance Shop is a London based Perfume brand.Each piece in our
+          collection has been meticulously designed in our studio near London
+          Bridge and embodies our principals of simplicity, detail and
+          understated masculinity.Our collection of Pendants, Cuffs and Rings
+          have been designed to be worn individually or layered and stacked
+          together. embodies our principals of simplicity, detail and
+          understated masculinity.Our collection of Pendants, Cuffs and Rings
+          have been designed to be worn individually or layered and stacked
+          together. detail and understated masculinity.
+        </p>
+        <NavLink
+          to="/explore"
+          className="btn "
+          style={{
+            border: "1px solid var(--golden)",
+            color: "var(--golden)",
+          }}
+        >
+          Purchase Your Favorite One
+        </NavLink>
+      </div>
 
-                {/* about us thumbnail */}
-                <Col xs={12} sm={12} md={6} className="about-us-thumbnail">
-                </Col>
+      {/* gallery section */}
 
-                {/* about us details */}
-                <Col xs={12} sm={12} md={6} className="p-5 text-start">
-                    <h1 className="pt-5" >ABOUT US</h1>
-                    <p className="pt-3" >The Fragrance Shop is a London based Perfume brand.Each piece in our collection has been meticulously designed in our studio near London Bridge and embodies our principals of simplicity, detail and understated masculinity.Our collection of Pendants, Cuffs and Rings have been designed to be worn individually or layered and stacked together. embodies our principals of simplicity, detail and understated masculinity.Our collection of Pendants, Cuffs and Rings have been designed to be worn individually or layered and stacked together. detail and understated masculinity.Our collection of Pendants, Cuffs and Rings have been designed to be worn individually or layered and stacked together</p>
-                    <NavLink to="/home" className="btn btn-dark p-3 mt-3 ">
-                        Purchase Your Favorite One..
-                    </NavLink>
-                </Col>
-            </Row>
+      <div className="my-5">
+        {/* gallery section title */}
+        <h3
+          className="pt-2 pb-5 text-center"
+          style={{
+            color: "var(--golden)",
+          }}
+        >
+          GALLERY
+        </h3>
 
+        <div className="gallery-images">
+          {/* gallery images  */}
 
-            {/* gallery section */}
+          <img className="img-fluid mb-2 mx-auto" src={image1} alt="image1" />
+          <img className="img-fluid mb-2 mx-auto" src={image2} alt="image1" />
+          <img className="img-fluid mb-2 mx-auto" src={image5} alt="image1" />
 
-            <div className="my-5">
+          <img className="img-fluid mb-2 mx-auto" src={image4} alt="image1" />
+          <img className="img-fluid mb-2 mx-auto" src={image5} alt="image1" />
 
-                {/* gallery section title */}
-                <h2 className="mb-5">GALLERY</h2>
+          <img className="img-fluid mb-2 mx-auto" src={image2} alt="image1" />
 
-                <Row className="me-0">
+          <img className="img-fluid mb-2 mx-auto" src={image4} alt="image1" />
+          <img className="img-fluid mb-2 mx-auto" src={image5} alt="image1" />
 
-                    {/* gallery images  */}
-                    <Col xs={12} sm={12} md={4}>
-                        <img className="img-fluid w-75 mb-2 mx-auto" src={image1} alt="image1" />
-                        <img className="img-fluid w-75 mb-2 mx-auto" src={image2} alt="image1" />
-                    </Col>
+          <img className="img-fluid mb-2 mx-auto" src={image2} alt="image1" />
 
-                    <Col xs={12} sm={12} md={4} >
-                        <img className="img-fluid w-50 mb-2 mx-auto" src={image3} alt="image1" />
-                    </Col>
+          <img className="img-fluid mb-2 mx-auto" src={image4} alt="image1" />
+          <img className="img-fluid mb-2 mx-auto" src={image5} alt="image1" />
 
-                    <Col xs={12} sm={12} md={4} >
-                        <img className="img-fluid w-75 mb-2 mx-auto" src={image4} alt="image1" />
-                        <img className="img-fluid w-75 mb-2 mx-auto" src={image5} alt="image1" />
-                    </Col>
-                </Row>
-
-            </div>
-
-            {/* footer section */}
-            <Footer></Footer>
+          <img className="img-fluid mb-2 mx-auto" src={image2} alt="image1" />
         </div>
-    );
+      </div>
+
+      {/* footer section */}
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default About;

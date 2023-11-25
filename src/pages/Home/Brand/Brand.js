@@ -7,7 +7,7 @@ import "./Brand.css";
 import banner1 from "../../../images/banner/perfume-removebg-preview.png";
 
 const Brand = ({ brand }) => {
-  const { name, desc, price, img, _id } = brand;
+  const { name, desc, price, image, _id } = brand;
 
   // style images
   const imgStyle = {
@@ -25,7 +25,7 @@ const Brand = ({ brand }) => {
       <Col>
         <Card className=" m-3 brand-card">
           {/* perfume brand info thumbnail */}
-          <Card.Img variant="top" src={banner1} style={imgStyle} />
+          <Card.Img variant="top" src={image} style={imgStyle} />
           <hr />
           <Card.Body className="p-2">
             <div className="d-flex justify-content-around align-items-center">

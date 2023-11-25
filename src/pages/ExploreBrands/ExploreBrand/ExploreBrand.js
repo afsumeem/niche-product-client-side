@@ -5,7 +5,7 @@ import { Card, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const ExploreBrand = ({ exploreBrand }) => {
-  const { name, desc, price, img, _id } = exploreBrand;
+  const { name, desc, price, image, _id } = exploreBrand;
 
   // style images
   const imgStyle = {
@@ -23,7 +23,7 @@ const ExploreBrand = ({ exploreBrand }) => {
       <Col>
         <Card className=" m-3 brand-card">
           {/* perfume brand info thumbnail */}
-          {/* <Card.Img variant="top" src={img} style={imgStyle} /> */}
+          <Card.Img variant="top" src={image} style={imgStyle} />
           <Card.Body className="p-2">
             <div className="d-flex justify-content-around align-items-center">
               <Card.Title className="text-white text-center fs-6 ">

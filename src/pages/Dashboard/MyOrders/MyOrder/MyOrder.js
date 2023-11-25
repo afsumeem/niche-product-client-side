@@ -31,12 +31,12 @@ const MyOrder = ({ myOrder }) => {
   return (
     <>
       <tr>
-        <td className="p-3">{name}</td>
-        <td className="p-3">{productName}</td>
-        <td className="p-3">{Address}</td>
-        <td className="p-3">{price}</td>
-        <td className="p-3">{date}</td>
-        <td>
+        <td className="py-2 text-center">{name}</td>
+        <td className="py-2 text-center">{productName}</td>
+        <td className="py-2 text-center">{Address}</td>
+        <td className="py-2 text-center">$ {price}</td>
+        <td className="py-2 text-center">{date}</td>
+        <td className="py-2 text-center">
           <button
             className="border-0 btn btn-0 text-danger"
             title="Delete Product"
@@ -48,12 +48,20 @@ const MyOrder = ({ myOrder }) => {
           </button>
         </td>
 
-        <td className="p-3">
+        <td className="py-2 text-center">
           {payment ? (
             "Paid"
           ) : (
             <Link to={`/dashboard/payment/${_id}`}>
-              <button>Pay</button>
+              <button
+                className="btn"
+                style={{
+                  border: "1px solid var(--golden)",
+                  color: "var(--golden)",
+                }}
+              >
+                Pay
+              </button>
             </Link>
           )}
         </td>
@@ -62,7 +70,11 @@ const MyOrder = ({ myOrder }) => {
       {/* Confirmation alert */}
       <Modal show={show} onHide={handleClose}>
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
+          <h5
+            class="modal-title"
+            style={{ color: "var(--golden)" }}
+            id="exampleModalLabel"
+          >
             Confirmation
           </h5>
         </div>
@@ -73,16 +85,23 @@ const MyOrder = ({ myOrder }) => {
 
         <Modal.Footer>
           <Button
-            variant="secondary"
+            variant="danger"
             onClick={() => {
               handleDeleteOrder(_id);
             }}
           >
             Yes! Delete it
           </Button>
-          <Button variant="primary" onClick={handleNoBtn}>
+          <button
+            className="btn"
+            style={{
+              border: "1px solid var(--golden)",
+              color: "var(--golden)",
+            }}
+            onClick={handleNoBtn}
+          >
             No
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </>
